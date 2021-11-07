@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ResultsPage implements BasePage {
+public class ResultsPage{
 
     private static final String LINKS_AREA_LOCATOR = "#links";
 

@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
         features = "classpath:features",
         plugin = {"pretty", "html:results/cucumber-reports.html", "json:results/cucumber.json", "junit:results/cucumber.xml"},
         glue = "com.example.selenium",
-        tags = "not @wip")
+        tags = "@wip")
 
 public class TestRunner {
-
+//Farhan
 }
