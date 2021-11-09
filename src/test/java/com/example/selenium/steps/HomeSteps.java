@@ -14,7 +14,7 @@ public class HomeSteps {
 
     @Given("^I search \"([^\"]*)\" in the search input of the home page$")
     public void iSearchInTheSearchInputOfTheHomePage(String search) {
-        assertEquals(search,"Farhan");
+        assertEquals(search,"Selenium");
         homePage.inputSearch(search);
     }
 
