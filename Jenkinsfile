@@ -21,4 +21,17 @@ node(){
 			archive "**/cucumber.json"
 			cucumber '**/cucumber.json'
 		}
+
+            stage('Generate HTML report') {
+                cucumber buildStatus: 'UNSTABLE',
+                        reportTitle: 'SprintBoot Learning project Test Report',
+                        fileIncludePattern: '**/cucumber.json',
+                        trendsLimit: 10,
+                        classifications: [
+                            [
+                                'key': 'Browser',
+                                'value': 'Firefox'
+                            ]
+                        ]
+            }
   }
