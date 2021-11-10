@@ -46,8 +46,10 @@ node(){
                 script
                 {
                     currentBuild.result = checkTestResult()
-                            if (currentBuild.result == 'FAILURE') {
+                            if (currentBuild.result == 'FAILURE')
+                            {
                                 sh "exit 1" // Force pipeline exit with build result failed
-                }
+                            }
             }
         }
+  }
