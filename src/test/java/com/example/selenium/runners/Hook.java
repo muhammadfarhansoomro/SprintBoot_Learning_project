@@ -53,9 +53,6 @@ public class Hook {
 
     private WebDriverWait wait;
 
-    @Autowired
-    SoftAssertions softAssertions;
-
     @PostConstruct
     public void initialize() {
 
@@ -89,7 +86,6 @@ public class Hook {
     }
 
     public void tearDown(Scenario scenario) {
-        softAssertions.assertAll();
         if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshot");
