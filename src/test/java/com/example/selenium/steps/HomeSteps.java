@@ -23,9 +23,11 @@ public class HomeSteps {
     @Given("^I search \"([^\"]*)\" in the search input of the home page$")
     public void iSearchInTheSearchInputOfTheHomePage(String search) {
         //assertEquals(search,"Farhan");
-        softAssertions = new SoftAssertions();
-        softAssertions.assertThat(search.equals("Farhan"));
+ //       softAssertions = new SoftAssertions();
+//        softAssertions.assertThat(!search.equals("Farhan"));
+        assertEquals("Assertion", search, "Farhan");
         homePage.inputSearch(search);
+//        softAssertions.assertAll();
     }
 
     @When("^I press the search button in the home page$")
