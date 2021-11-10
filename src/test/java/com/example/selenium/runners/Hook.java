@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.PostConstruct;
 
 import io.cucumber.java.Scenario;
+import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -50,6 +52,9 @@ public class Hook {
     private WebDriver driver;
 
     private WebDriverWait wait;
+
+    @Autowired
+    SoftAssertions softAssertions;
 
     @PostConstruct
     public void initialize() {
@@ -84,6 +89,7 @@ public class Hook {
     }
 
     public void tearDown(Scenario scenario) {
+        softAssertions.assertAll();
         if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", "screenshot");

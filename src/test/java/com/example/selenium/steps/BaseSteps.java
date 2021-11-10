@@ -8,6 +8,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.apache.commons.lang3.StringUtils;
+import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,7 +47,6 @@ public class BaseSteps {
         });
         // --
     }
-
     @After(order = 1)
     public void closeDriver(final Scenario scenario) {
         hooks.tearDown(scenario);

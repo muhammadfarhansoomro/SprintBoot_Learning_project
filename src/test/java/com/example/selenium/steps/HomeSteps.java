@@ -3,18 +3,27 @@ package com.example.selenium.steps;
 import com.example.selenium.pages.HomePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import org.assertj.core.api.SoftAssertions;
+import org.junit.Rule;
+import org.junit.rules.ErrorCollector;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.regex.Matcher;
 
 import static org.junit.Assert.assertEquals;
 
 public class HomeSteps {
+    @Rule
+    public ErrorCollector collector = new ErrorCollector();
+    SoftAssertions softAssertions;
 
     @Autowired
     private HomePage homePage;
 
     @Given("^I search \"([^\"]*)\" in the search input of the home page$")
     public void iSearchInTheSearchInputOfTheHomePage(String search) {
-        assertEquals(search,"Farhan");
+        //assertEquals(search,"Farhan");
+        softAssertions.assertThat(search.equals("Farhan"));
         homePage.inputSearch(search);
     }
 
