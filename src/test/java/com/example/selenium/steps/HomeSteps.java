@@ -15,19 +15,14 @@ import static org.junit.Assert.assertEquals;
 public class HomeSteps {
     @Rule
     public ErrorCollector collector = new ErrorCollector();
-    SoftAssertions softAssertions;
 
     @Autowired
     private HomePage homePage;
 
     @Given("^I search \"([^\"]*)\" in the search input of the home page$")
     public void iSearchInTheSearchInputOfTheHomePage(String search) {
-        //assertEquals(search,"Farhan");
- //       softAssertions = new SoftAssertions();
-//        softAssertions.assertThat(!search.equals("Farhan"));
         assertEquals("Assertion", search, "Farhan");
         homePage.inputSearch(search);
-//        softAssertions.assertAll();
     }
 
     @When("^I press the search button in the home page$")
