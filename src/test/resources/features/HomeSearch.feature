@@ -1,4 +1,4 @@
-Feature: Home Page Search Tests
+Feature: Home Page Search Tests1
 
   @wip
   Scenario Outline: User can do a search from the home page
