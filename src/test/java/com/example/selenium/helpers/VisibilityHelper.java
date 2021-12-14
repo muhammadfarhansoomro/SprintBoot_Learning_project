@@ -34,4 +34,5 @@ public class VisibilityHelper {
     public void waitForPresenceOf(By by) {
         hooks.getWait().until(visibilityOfElementLocated(by));
     }
+
 }
