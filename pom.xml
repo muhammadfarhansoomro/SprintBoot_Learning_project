@@ -16,6 +16,7 @@
 
         <webdriver.version>4.2.2</webdriver.version>
         <cucumber.version>6.8.1</cucumber.version>
+        <maven-surefire-version>2.19.1</maven-surefire-version>
 
     </properties>
 
@@ -28,12 +29,24 @@
 
     <build>
         <plugins>
-
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${maven-surefire-version}</version>
+            <configuration>
+            <systemPropertyVariables>
+                <userName>${DuserName}</userName>
+                <password>${Dpassword}</password>
+                <implicitWait>${DimplicitWait}</implicitWait>
+                <explicitWait>${DexplicitWait}</explicitWait>
+                <browser>${Dbrowser}</browser>
+            </systemPropertyVariables>
+            </configuration>
+            </plugin>
         </plugins>
     </build>
 
     <dependencies>
-
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
