@@ -1,6 +1,7 @@
 package com.example.selenium.pages;
 
 import com.example.selenium.helpers.ConstantsHelper;
+import com.example.selenium.helpers.GenericHelper;
 import com.example.selenium.helpers.VisibilityHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,7 @@ import static java.lang.Boolean.TRUE;
 public class HomePage implements BasePage {
     @Autowired
     private VisibilityHelper visibilityHelper;
+    private GenericHelper genericHelper;
 
     @FindBy(how = How.CSS, using = ConstantsHelper.searchInput) //"#search_form_input_homepage")
     private WebElement searchInput;
@@ -28,11 +30,12 @@ public class HomePage implements BasePage {
 
     public void inputSearch(String search) {
         visibilityHelper.waitForVisibilityOf(searchInput);
-        searchInput.sendKeys(search);
+        genericHelper.inputText = search;
+        searchInput.sendKeys(genericHelper.inputText);
     }
 
     public void pressSearchButton() {
         visibilityHelper.waitForVisibilityOf(searchButton);
-        if (TRUE.equals(searchButton.isEnabled())) searchButton.click();
+        if (TRUE.equals(searchButton.isEnabled())) genericHelper.clickElement(searchButton);
     }
 }
