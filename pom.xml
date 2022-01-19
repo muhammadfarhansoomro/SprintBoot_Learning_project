@@ -17,6 +17,7 @@
         <webdriver.version>4.2.2</webdriver.version>
         <cucumber.version>6.8.1</cucumber.version>
         <maven-surefire-version>2.19.1</maven-surefire-version>
+        <ngwebdriver.version>1.1.6</ngwebdriver.version>
 
     </properties>
 
@@ -95,6 +96,10 @@
             <artifactId>cucumber-core</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.paulhammant</groupId>
+            <artifactId>ngwebdriver</artifactId>
+            <version>${ngwebdriver.version}</version>
+        </dependency>
     </dependencies>
 </project>
