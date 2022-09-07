@@ -26,5 +26,6 @@ public class LoginSteps {
 
     @Given("a valid User with username <User> and password <Password> logs into Dealercockpit application")
     public void aValidUserWithUsernameUserAndPasswordPasswordLogsIntoDealercockpitApplication() {
+        
     }
 }
