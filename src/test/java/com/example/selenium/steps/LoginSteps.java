@@ -1,9 +1,7 @@
 package com.example.selenium.steps;
 
-import com.example.selenium.pages.DealerCockpit_Login;
-import com.example.selenium.pages.HomePage;
+import com.example.selenium.pages.DealerCockpit_Login_1;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.When;
 import org.junit.Rule;
 import org.junit.rules.ErrorCollector;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,7 @@ public class LoginSteps {
     public ErrorCollector collector = new ErrorCollector();
 
     @Autowired
-    private DealerCockpit_Login loginPage;
+    private DealerCockpit_Login_1 loginPage;
 
     @Given("a valid User with username \"([^\"]*)\" and password  \"([^\"]*)\" logs into Dealercockpit application$")
     public void ilogintotheapplication(String username, String password) {

@@ -10,4 +10,3 @@ Feature: Home Page Search Tests
       |  Selenium      |  12345678  |
       |  Junit         |  12345679  |
       |  TestNG        |  12345670  |
-      |  Farhan        |  12345670  |

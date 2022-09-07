@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import static java.lang.Boolean.TRUE;
 
 @Component
-public class DealerCockpit_Login implements BasePage {
+public class DealerCockpit_Login_1 implements BasePage {
 
     @Autowired
     private VisibilityHelper visibilityHelper;
