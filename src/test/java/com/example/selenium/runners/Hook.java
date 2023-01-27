@@ -5,6 +5,7 @@ import static org.springframework.util.ObjectUtils.isEmpty;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import javax.annotation.PostConstruct;
@@ -16,9 +17,12 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -146,7 +150,7 @@ public class Hook {
         } else {
             driver = new ChromeDriver(chromeOptions);
         }
-        wait = new WebDriverWait(driver, 20, 1000);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     private void setFirefoxDriver() {
@@ -165,7 +169,35 @@ public class Hook {
 
         driver = new FirefoxDriver(firefoxOptions);
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, 20, 1000);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    }
+    private void setEdgeDriver() {
+        WebDriverManager.edgedriver().setup();
+
+        EdgeOptions edgeOptions = new EdgeOptions();
+        edgeOptions.addArguments("--start-maximized");
+
+        // Headless mode
+        if (TRUE.equals(headless)) {
+            edgeOptions.addArguments("--headless");
+            edgeOptions.addArguments("--disable-gpu");
+            edgeOptions.addArguments("window-size=1920,1080");
+            edgeOptions.addArguments("--ignore-certificate-errors");
+            edgeOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+        }
+
+        // Remote mode
+        if ("grid".equals(remote)) {
+
+            try {
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), edgeOptions);
+            } catch (MalformedURLException e) {
+                LOGGER.error("Error", e);
+            }
+        } else {
+            driver = new EdgeDriver(edgeOptions);
+        }
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
     private void goToBaseUrl() {
