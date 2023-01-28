@@ -307,4 +307,14 @@ public class GenericHelper {
         assert ctrlBackgroundColour.asRgb().equals("rgb(255, 105, 180)");
     }
 
+    public void x(Integer x, Integer y)
+    {
+
+    }
+
+    public void x(Float x, Float y)
+    {
+
+    }
+
 }

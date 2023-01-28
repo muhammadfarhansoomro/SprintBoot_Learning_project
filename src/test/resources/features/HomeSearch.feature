@@ -6,7 +6,7 @@ Feature: Home Page Search Tests1
     When I press the search button in the home page
     Then the links are displayed on the results page
     Examples:
-      |  Suchbegriff  |  Password  |
+      |  Suchbegriff   |  Password  |
       |  Selenium      |  12345678  |
       |  Junit         |  12345679  |
       |  TestNG        |  12345670  |
