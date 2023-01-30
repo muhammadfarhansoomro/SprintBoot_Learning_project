@@ -23,11 +23,12 @@ public class HomeSteps {
     public void iSearchInTheSearchInputOfTheHomePage(String search) throws InterruptedException {
 //        assertEquals("Assertion Results", search, "Farhan");
         homePage.inputSearch(search);
-        Thread.sleep(2000);
+        Thread.sleep(5000);
+
     }
 
     @When("^I press the search button in the home page$")
     public void iPressTheSearchButtonInTheHomePage() {
-        homePage.pressSearchButton();
+        homePage.pressEnter();
     }
 }

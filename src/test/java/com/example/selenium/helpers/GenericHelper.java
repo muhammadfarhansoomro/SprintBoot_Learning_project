@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.time.Duration;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Set;
 
+@Component
 public class GenericHelper {
 
     @Autowired
@@ -325,5 +327,10 @@ public class GenericHelper {
     public void pressDownKey(WebElement e)
     {
         e.sendKeys(Keys.ARROW_DOWN);
+    }
+
+    public boolean verifyPageContent(String s)
+    {
+       return hooks.getDriver().getPageSource().contains(s);
     }
 }
