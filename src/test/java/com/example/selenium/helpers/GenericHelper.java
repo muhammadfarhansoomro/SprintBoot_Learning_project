@@ -317,4 +317,13 @@ public class GenericHelper {
 
     }
 
+    public void pressEnter(WebElement e)
+    {
+        e.sendKeys(Keys.ENTER);
+    }
+
+    public void pressDownKey(WebElement e)
+    {
+        e.sendKeys(Keys.ARROW_DOWN);
+    }
 }

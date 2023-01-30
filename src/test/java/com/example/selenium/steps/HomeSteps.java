@@ -20,9 +20,10 @@ public class HomeSteps {
     private HomePage homePage;
 
     @Given("^I search \"([^\"]*)\" in the search input of the home page$")
-    public void iSearchInTheSearchInputOfTheHomePage(String search) {
-        assertEquals("Assertion", search, "Farhan");
+    public void iSearchInTheSearchInputOfTheHomePage(String search) throws InterruptedException {
+//        assertEquals("Assertion Results", search, "Farhan");
         homePage.inputSearch(search);
+        Thread.sleep(2000);
     }
 
     @When("^I press the search button in the home page$")

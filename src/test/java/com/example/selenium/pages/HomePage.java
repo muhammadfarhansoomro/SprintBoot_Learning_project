@@ -21,7 +21,7 @@ public class HomePage implements BasePage {
     @FindBy(how = How.CSS, using = ConstantsHelper.searchInput) //"#search_form_input_homepage")
     private WebElement searchInput;
 
-    @FindBy(how = How.CSS, using = ConstantsHelper.searchButton)
+    @FindBy(how = How.ID, using = ConstantsHelper.searchButton)
     private WebElement searchButton;
 
     public HomePage() {
@@ -30,12 +30,19 @@ public class HomePage implements BasePage {
 
     public void inputSearch(String search) {
         visibilityHelper.waitForVisibilityOf(searchInput);
-        genericHelper.inputText = search;
-        searchInput.sendKeys(genericHelper.inputText);
+//        genericHelper.inputText = search;
+//        searchInput.sendKeys(genericHelper.inputText);
+        searchInput.sendKeys(search);
     }
 
     public void pressSearchButton() {
         visibilityHelper.waitForVisibilityOf(searchButton);
         if (TRUE.equals(searchButton.isEnabled())) genericHelper.clickElement(searchButton);
+    }
+
+    public void pressEnter()
+    {
+        genericHelper.pressDownKey(searchInput);
+        genericHelper.pressEnter(searchInput);
     }
 }
