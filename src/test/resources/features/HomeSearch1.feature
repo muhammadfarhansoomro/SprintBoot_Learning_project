@@ -5,7 +5,7 @@ Feature: Home Page Search Tests
     Given I search "<Suchbegriff>" in the search input of the home page
     When I press the search button in the home page
     Then the links are displayed on the results page
-    And I will check if the Results Page contain "Test"
+    And I will check if the Results Page contain "TestNG"
 
     @Regression
     Examples:
@@ -13,11 +13,12 @@ Feature: Home Page Search Tests
       |  Selenium      |  12345678  |
       |  Junit         |  12345679  |
       |  TestNG        |  12345670  |
-
-    @Int
-    Examples:
-      |  Suchbegriff   |  Password  |
-      |  Selenium      |  12345678  |
-      |  Junit         |  12345679  |
-      |  TestNG        |  12345670  |
       |  Test          |  12345670  |
+
+ #   @Regression
+ #   Examples:
+ #     |  Suchbegriff   |  Password  |
+ #     |  Selenium      |  12345678  |
+ #     |  Junit         |  12345679  |
+ #     |  TestNG        |  12345670  |
+ #     |  Test          |  12345670  |
