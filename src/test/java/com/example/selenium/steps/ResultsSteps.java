@@ -23,7 +23,7 @@ public class ResultsSteps {
         resultsPage.assertLinksArea();
     }
 
-    @And("I will check if the Results Page contain {string}")
+    @And("I will verify if the Results Page contain {string}")
     public void iWillCheckIfTheResultsPageContain(String s) {
         assertTrue(genericHelper.verifyPageContent(s));
     }
