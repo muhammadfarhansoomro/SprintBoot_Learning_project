@@ -27,6 +27,6 @@ public class HomeSteps {
 
     @When("^I press the search button in the home page$")
     public void iPressTheSearchButtonInTheHomePage() {
-        homePage.pressEnter();
+        homePage.executeSearch();
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ResultsPage{
 
-    private static final String LINKS_AREA_LOCATOR = "#links";
+    private static final String LINKS_AREA_LOCATOR = "#links_wrapper";
 
     @Autowired
     private VisibilityHelper visibilityHelper;

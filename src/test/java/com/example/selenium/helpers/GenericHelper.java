@@ -333,4 +333,9 @@ public class GenericHelper {
     {
        return hooks.getDriver().getPageSource().contains(s);
     }
+
+    public int checkIfElementExists(String selector)
+    {
+        return driver.findElements(By.id(selector)).size();
+    }
 }

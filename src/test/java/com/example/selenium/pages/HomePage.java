@@ -17,6 +17,9 @@ public class HomePage implements BasePage {
     @Autowired
     private VisibilityHelper visibilityHelper;
 
+    @Autowired
+    private GenericHelper genericHelper;
+
     @FindBy(how = How.ID, using = ConstantsHelper.searchInput) //"#search_form_input_homepage")
     private WebElement searchInput;
 
@@ -43,8 +46,12 @@ public class HomePage implements BasePage {
     */
 
 
-    public void pressEnter()
+    public void executeSearch()
     {
-        searchButton.click();
+ //       if (genericHelper.checkIfElementExists(ConstantsHelper.searchButton)) == 0;
+//        searchButton.click();
+        genericHelper.pressEnter(searchInput);
     }
+
+
 }
