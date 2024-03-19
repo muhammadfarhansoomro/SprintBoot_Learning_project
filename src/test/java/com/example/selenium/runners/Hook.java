@@ -8,7 +8,7 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import io.cucumber.java.Scenario;
 import org.assertj.core.api.SoftAssertions;
