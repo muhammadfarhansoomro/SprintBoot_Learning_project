@@ -46,12 +46,9 @@ public class HomePage implements BasePage {
     */
 
 
-    public void executeSearch()
-    {
- //       if (genericHelper.checkIfElementExists(ConstantsHelper.searchButton)) == 0;
-//        searchButton.click();
-        genericHelper.pressEnter(searchInput);
+    public void executeSearch() {
+ /*       if (TRUE.equals(genericHelper.checkIfElementExists(ConstantsHelper.searchButton))) {
+            searchButton.click();}*/
+            genericHelper.pressEnter(searchInput);
     }
-
-
 }

@@ -4,6 +4,7 @@ import com.example.selenium.runners.Hook;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -319,6 +320,18 @@ public class GenericHelper {
 
     }
 
+    public static final long DEFAULT_TIMEOUT_SECONDS = 30;
+    private long timeout = DEFAULT_TIMEOUT_SECONDS;
+
+    public long getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(long timeout) {
+        this.timeout = timeout;
+    }
+
+
     public void pressEnter(WebElement e)
     {
         e.sendKeys(Keys.ENTER);
@@ -334,8 +347,15 @@ public class GenericHelper {
        return hooks.getDriver().getPageSource().contains(s);
     }
 
-    public int checkIfElementExists(String selector)
+    public boolean checkIfElementExists(String selector)
+
     {
-        return driver.findElements(By.id(selector)).size();
+        boolean elementExists = false;
+        if (!driver.findElements(By.id(selector)).isEmpty())
+        {
+            elementExists = true;
+        }
+        System.out.println(elementExists);
+        return elementExists;
     }
 }
