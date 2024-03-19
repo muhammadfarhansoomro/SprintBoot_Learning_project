@@ -119,7 +119,8 @@ public class Hook {
             setChromeDriver();
         } else if ("firefox".equals(browser)) {
             setFirefoxDriver();
-        }
+        }else if ("edge".equals(browser)) {
+            setEdgeDriver();}
 
         // Navigate
         driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
