@@ -351,7 +351,7 @@ public class GenericHelper {
 
     {
         boolean elementExists = false;
-        if (!driver.findElements(By.id(selector)).isEmpty())
+        if (!hooks.getDriver().findElements(By.id(selector)).isEmpty())
         {
             elementExists = true;
         }

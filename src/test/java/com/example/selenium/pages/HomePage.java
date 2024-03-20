@@ -38,17 +38,8 @@ public class HomePage implements BasePage {
 
     }
 
-    /*
-    public void pressSearchButton() {
-        visibilityHelper.waitForVisibilityOf(searchButton);
-        if (TRUE.equals(searchButton.isEnabled())) genericHelper.clickElement(searchButton);
-    }
-    */
-
-
     public void executeSearch() {
- /*       if (TRUE.equals(genericHelper.checkIfElementExists(ConstantsHelper.searchButton))) {
-            searchButton.click();}*/
-            genericHelper.pressEnter(searchInput);
+        if (TRUE.equals(genericHelper.checkIfElementExists(ConstantsHelper.searchButton))) {
+            searchButton.click();}else{genericHelper.pressEnter(searchInput);}
     }
 }
