@@ -128,7 +128,8 @@ public class Hook {
     }
 
     private void setChromeDriver() {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
+        WebDriverManager.chromedriver().clearResolutionCache();
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--start-maximized");
