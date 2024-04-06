@@ -358,4 +358,27 @@ public class GenericHelper {
         System.out.println(elementExists);
         return elementExists;
     }
+
+    public void getPageResponseTime()
+    {
+        long navigationStart;
+        long responseStart;
+        long domComplete;
+        long backendPerformance;
+        long frontendPerformance;
+        js = (JavascriptExecutor)hooks.getDriver();
+        hooks.getDriver().getPageSource();
+        navigationStart = (Long)js.executeScript(
+                "return window.performance.timing.navigationStart;");
+        responseStart = (Long)js.executeScript(
+                "return window.performance.timing.responseStart;");
+        domComplete = (Long)js.executeScript(
+                "return window.performance.timing.domComplete;");
+
+        backendPerformance = (responseStart - navigationStart);
+        frontendPerformance = (domComplete - responseStart);
+
+        System.out.println("Backend Load Time in Milliseconds: " + backendPerformance);
+        System.out.println("Frontend Load Time in Milliseconds: " + frontendPerformance);
+    }
 }

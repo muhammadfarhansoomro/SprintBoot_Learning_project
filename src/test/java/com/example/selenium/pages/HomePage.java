@@ -32,10 +32,10 @@ public class HomePage implements BasePage {
 
     public void inputSearch(String search) {
         visibilityHelper.waitForVisibilityOf(searchInput);
+        genericHelper.getPageResponseTime();
 //        genericHelper.inputText = search;
 //        searchInput.sendKeys(genericHelper.inputText);
         searchInput.sendKeys(search);
-
     }
 
     public void executeSearch() {
