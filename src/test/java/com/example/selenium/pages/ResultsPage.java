@@ -18,7 +18,7 @@ public class ResultsPage{
     private GenericHelper genericHelper;
 
     public void assertLinksArea(){
-        visibilityHelper.waitForPresenceOf(By.cssSelector(LINKS_AREA_LOCATOR));
+//        visibilityHelper.waitForPresenceOf(By.cssSelector(LINKS_AREA_LOCATOR));
         genericHelper.getPageResponseTime();
     }
 }

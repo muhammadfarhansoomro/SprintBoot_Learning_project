@@ -12,3 +12,4 @@ Feature: Home Page Search Tests1
       |  Junit         |  12345679  |
       |  TestNG        |  12345670  |
       |  Test          |  12345670  |
+      |  XYZ           |  12345670  |

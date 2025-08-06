@@ -25,6 +25,6 @@ public class ResultsSteps {
 
     @And("I will verify if the Results Page contain {string}")
     public void iWillCheckIfTheResultsPageContain(String s) {
-        assertTrue(genericHelper.verifyPageContent(s));
+        assertTrue(genericHelper.verifyPageContent(s), "Verification status");
     }
 }
